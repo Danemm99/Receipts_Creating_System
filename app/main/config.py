@@ -20,8 +20,8 @@ class Settings:
     API_STR = "/api"
     auth_jwt = AuthJWT()
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
-    SQLALCHEMY_DATABASE_URI: str = os.getenv("SQLALCHEMY_DATABASE_URL")
-    SQLALCHEMY_TEST_DATABASE_URI: str = os.getenv("SQLALCHEMY_TEST_DATABASE_URI")
+    SQLALCHEMY_DATABASE_URL: str = os.getenv("SQLALCHEMY_DATABASE_URL")
+    SQLALCHEMY_TEST_DATABASE_URL: str = os.getenv("SQLALCHEMY_TEST_DATABASE_URL")
 
 
 settings = Settings()
