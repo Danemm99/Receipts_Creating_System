@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+sqlalchemy
+alembic
+python-multipart
+pyjwt[crypto]
+bcrypt
+pydantic
+pytest
+httpx
+python-dotenv
