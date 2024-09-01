@@ -67,87 +67,145 @@ pytest app/test_api/test_users_api.py
 
 ## Endpoint documentation
 
-Endpoint Documentation
-User Endpoints
-Register User
+### **User Endpoints**
 
-    URL: /register/
-    Method: POST
-    Description: Registers a new user.
-    Parameters:
-        user: A JSON object with the following fields:
-            username (string): The user's unique username.
-            name (string): The user's full name.
-            password (string): The user's password.
-    Response: A JSON object with the registered user's username and name.
+#### **Register User**
 
-Login User
+*   **URL:** /register/
+    
+*   **Method:** POST
+    
+*   **Description:** Registers a new user.
+    
+*   **Parameters:**
+    
+    *   user: A JSON object with the following fields:
+        
+        *   username (string): The user's unique username.
+            
+        *   name (string): The user's full name.
+            
+        *   password (string): The user's password.
+            
+*   **Response:** A JSON object with the registered user's username and name.
+    
 
-    URL: /login/
-    Method: POST
-    Description: Authenticates a user and returns a JWT token.
-    Parameters:
-        user: A JSON object with the following fields:
-            username (string): The user's username.
-            password (string): The user's password.
-    Response: A JSON object with an access_token (JWT token) and token_type (bearer).
+#### **Login User**
 
-Get Current User
+*   **URL:** /login/
+    
+*   **Method:** POST
+    
+*   **Description:** Authenticates a user and returns a JWT token.
+    
+*   **Parameters:**
+    
+    *   user: A JSON object with the following fields:
+        
+        *   username (string): The user's username.
+            
+        *   password (string): The user's password.
+            
+*   **Response:** A JSON object with an access\_token (JWT token) and token\_type (bearer).
+    
 
-    URL: /me/
-    Method: GET
-    Description: Retrieves information about the currently authenticated user.
-    Parameters: None
-    Response: A JSON object with the current user's username and name.
+#### **Get Current User**
 
-Receipt Endpoints
-Create Receipt
+*   **URL:** /me/
+    
+*   **Method:** GET
+    
+*   **Description:** Retrieves information about the currently authenticated user.
+    
+*   **Parameters:** None
+    
+*   **Response:** A JSON object with the current user's username and name.
+    
 
-    URL: /create_receipt/
-    Method: POST
-    Description: Creates a new receipt for the authenticated user.
-    Parameters:
-        receipt_id: A JSON object with the following fields:
-            products (list of ProductSchema): The products included in the receipt.
-            payment_type (string): The type of payment used, either "cash" or "cashless."
-            payment_amount (float): The total payment amount.
-    Response: A JSON object with the created receipt's details, including its id, products, payment_type, payment_amount, total, rest, and created_at.
+### **Receipt Endpoints**
 
-Get Receipts
+#### **Create Receipt**
 
-    URL: /get_receipts/
-    Method: GET
-    Description: Retrieves a list of receipts for the authenticated user, filtered by the provided parameters.
-    Parameters:
-        filters (optional): A JSON object with the following fields:
-            created_from (datetime): Filter receipts created from this date.
-            created_to (datetime): Filter receipts created up to this date.
-            min_total (float): Filter receipts with a minimum total amount.
-            max_total (float): Filter receipts with a maximum total amount.
-            payment_type (string): Filter receipts by payment type.
-        pagination (optional): A JSON object with the following fields:
-            page (int): The page number for pagination (default is 1).
-            page_size (int): The number of receipts per page (default is 10).
-    Response: A JSON list of receipt objects, each including details like id, created_at, total, payment_type, payment_amount, rest, and products.
+*   **URL:** /create\_receipt/
+    
+*   **Method:** POST
+    
+*   **Description:** Creates a new receipt for the authenticated user.
+    
+*   **Parameters:**
+    
+    *   receipt\_id: A JSON object with the following fields:
+        
+        *   products (list of ProductSchema): The products included in the receipt.
+            
+        *   payment\_type (string): The type of payment used, either "cash" or "cashless."
+            
+        *   payment\_amount (float): The total payment amount.
+            
+*   **Response:** A JSON object with the created receipt's details, including its id, products, payment\_type, payment\_amount, total, rest, and created\_at.
+    
 
-Get Receipt by ID
+#### **Get Receipts**
 
-    URL: /get_receipt/{receipt_id}
-    Method: GET
-    Description: Retrieves a specific receipt by its ID for the authenticated user.
-    Parameters:
-        receipt_id (int): The ID of the receipt to retrieve.
-    Response: A JSON object with the receipt's details.
+*   **URL:** /get\_receipts/
+    
+*   **Method:** GET
+    
+*   **Description:** Retrieves a list of receipts for the authenticated user, filtered by the provided parameters.
+    
+*   **Parameters:**
+    
+    *   filters (optional): A JSON object with the following fields:
+        
+        *   created\_from (datetime): Filter receipts created from this date.
+            
+        *   created\_to (datetime): Filter receipts created up to this date.
+            
+        *   min\_total (float): Filter receipts with a minimum total amount.
+            
+        *   max\_total (float): Filter receipts with a maximum total amount.
+            
+        *   payment\_type (string): Filter receipts by payment type.
+            
+    *   pagination (optional): A JSON object with the following fields:
+        
+        *   page (int): The page number for pagination (default is 1).
+            
+        *   page\_size (int): The number of receipts per page (default is 10).
+            
+*   **Response:** A JSON list of receipt objects, each including details like id, created\_at, total, payment\_type, payment\_amount, rest, and products.
+    
 
-Get Public Receipt
+#### **Get Receipt by ID**
 
-    URL: /public/{receipt_id}
-    Method: GET
-    Description: Retrieves a public receipt in plain text format, suitable for sharing without authentication.
-    Parameters:
-        receipt_id (int): The ID of the receipt to retrieve.
-        line_length (int, optional): The number of characters per line in the receipt (default is 40, minimum is 30).
-    Response: A plain text representation of the receipt.
+*   **URL:** /get\_receipt/{receipt\_id}
+    
+*   **Method:** GET
+    
+*   **Description:** Retrieves a specific receipt by its ID for the authenticated user.
+    
+*   **Parameters:**
+    
+    *   receipt\_id (int): The ID of the receipt to retrieve.
+        
+*   **Response:** A JSON object with the receipt's details.
+    
+
+#### **Get Public Receipt**
+
+*   **URL:** /public/{receipt\_id}
+    
+*   **Method:** GET
+    
+*   **Description:** Retrieves a public receipt in plain text format, suitable for sharing without authentication.
+    
+*   **Parameters:**
+    
+    *   receipt\_id (int): The ID of the receipt to retrieve.
+        
+    *   line\_length (int, optional): The number of characters per line in the receipt (default is 40, minimum is 30).
+        
+*   **Response:** A plain text representation of the receipt.
 
 
 
