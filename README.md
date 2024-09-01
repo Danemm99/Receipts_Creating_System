@@ -7,25 +7,30 @@
 https://github.com/Danemm99/Receipts_Creating_System.git
 ```
 
-**2. Install dependencies:**
+**2. Navigate to the project directory:**
+```commandline
+cd Receipts_Creating_System
+```
+
+**3. Install dependencies:**
 
 ```commandline
 pip install -r requirements.txt
 ```
 
-**3. Setup your database and set environment variable in .env file with needed data:**
+**4. Setup your database and set environment variable in .env file with needed data:**
 
 ```commandline
 cp .env.example .env
 ```
 
-**4. Apply all migrations:**
+**5. Apply all migrations:**
 
 ```commandline
 alembic upgrade head
 ```
 
-**5. Generate private key + public key pair:**
+**6. Generate private key + public key pair:**
 
 ```commandline
 mkdir certs
@@ -49,13 +54,13 @@ openssl rsa -in jwt-private.pem -outform PEM -pubout -out jwt-public.pem
 cd ..
 ```
 
-**6. Run the application:**
+**7. Run the application:**
 
 ```commandline
 uvicorn app.main.main:app --reload
 ```
 
-**6. Run tests:**
+**8. Run tests:**
 
 ```commandline
 pytest app/test_api/test_receipts_api.py
