@@ -8,7 +8,7 @@ from app.main.config import settings
 from app.db.session import get_db
 
 
-engine = create_engine(settings.SQLALCHEMY_TEST_DATABASE_URI, pool_pre_ping=True)
+engine = create_engine(settings.SQLALCHEMY_TEST_DATABASE_URL, pool_pre_ping=True)
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
