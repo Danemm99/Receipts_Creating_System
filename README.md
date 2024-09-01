@@ -71,7 +71,7 @@ pytest app/test_api/test_users_api.py
 
 #### **Register User**
 
-*   **URL:** /register/
+*   **URL:** /api/users/register/
     
 *   **Method:** POST
     
@@ -92,7 +92,7 @@ pytest app/test_api/test_users_api.py
 
 #### **Login User**
 
-*   **URL:** /login/
+*   **URL:** /api/users/login/
     
 *   **Method:** POST
     
@@ -111,7 +111,7 @@ pytest app/test_api/test_users_api.py
 
 #### **Get Current User**
 
-*   **URL:** /me/
+*   **URL:** /api/users/me/
     
 *   **Method:** GET
     
@@ -126,7 +126,7 @@ pytest app/test_api/test_users_api.py
 
 #### **Create Receipt**
 
-*   **URL:** /create\_receipt/
+*   **URL:** /api/receipts/create\_receipt/
     
 *   **Method:** POST
     
@@ -147,7 +147,7 @@ pytest app/test_api/test_users_api.py
 
 #### **Get Receipts**
 
-*   **URL:** /get\_receipts/
+*   **URL:** /api/receipts/get\_receipts/
     
 *   **Method:** GET
     
@@ -178,7 +178,7 @@ pytest app/test_api/test_users_api.py
 
 #### **Get Receipt by ID**
 
-*   **URL:** /get\_receipt/{receipt\_id}
+*   **URL:** /api/receipts/get\_receipt/{receipt\_id}
     
 *   **Method:** GET
     
@@ -193,7 +193,7 @@ pytest app/test_api/test_users_api.py
 
 #### **Get Public Receipt**
 
-*   **URL:** /public/{receipt\_id}
+*   **URL:** /api/receipts/public/{receipt\_id}
     
 *   **Method:** GET
     
