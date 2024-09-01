@@ -4,7 +4,7 @@
 
 **1. Clone the repository to your folder:**
 ```commandline
-git clone https://github.com/geeeeenccc/Building-damage-estimation-GustLuck.git .
+https://github.com/Danemm99/Receipts_Creating_System.git
 ```
 
 **2. Install dependencies:**
