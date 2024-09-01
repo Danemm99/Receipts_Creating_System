@@ -48,3 +48,35 @@ openssl rsa -in jwt-private.pem -outform PEM -pubout -out jwt-public.pem
 ```commandline
 cd ..
 ```
+
+**6. Run the application:**
+
+```commandline
+uvicorn app.main.main:app --reload
+```
+
+**6. Run tests:**
+
+```commandline
+pytest app/test_api/test_receipts_api.py
+```
+
+```commandline
+pytest app/test_api/test_users_api.py
+```
+
+## Endpoint documentation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
