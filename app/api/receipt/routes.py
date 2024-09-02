@@ -14,7 +14,7 @@ from app.crud.receipt import crud_receipt
 router = APIRouter()
 
 
-@router.post("/create_receipt/", response_model=ReceiptCreatingResponse)
+@router.post("/", response_model=ReceiptCreatingResponse)
 def create_receipt(
     receipt_id: ReceiptCreate,
     db: Session = Depends(get_db),
@@ -23,7 +23,7 @@ def create_receipt(
     return crud_receipt.create_receipt(db, receipt_id, user.id)
 
 
-@router.get("/get_receipts/", response_model=List[ReceiptResponse])
+@router.get("/", response_model=List[ReceiptResponse])
 def get_receipts(
     db: Session = Depends(get_db),
     user: User = Depends(get_current_auth_user),
@@ -33,7 +33,7 @@ def get_receipts(
     return crud_receipt.get_receipts(db, user.id, filters, pagination)
 
 
-@router.get("/get_receipt/{receipt_id}", response_model=ReceiptResponse)
+@router.get("/{receipt_id}", response_model=ReceiptResponse)
 def get_receipt_by_id(
     receipt_id: int,
     db: Session = Depends(get_db),
