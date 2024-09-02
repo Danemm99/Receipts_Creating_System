@@ -58,6 +58,14 @@ class ReceiptFilterParams(BaseModel):
                 status_code=400, detail="'max_total' must be greater than or equal to 'min_total'")
         return value
 
+    @validator('created_to')
+    def validate_date(cls, value, values):
+        created_from = values.get('created_from')
+        if created_from is not None and value is not None and value <= created_from:
+            raise HTTPException(
+                status_code=400, detail="'created_to' must be greater than 'created_from'")
+        return value
+
     @validator('payment_type')
     def validate_payment_type(cls, value):
         if value and value not in ["cash", "cashless"]:
