@@ -67,7 +67,7 @@ pytest app/test_api/test_receipts_api.py
 ```
 
 ```commandline
-pytest app/test_api/test_users_api.py
+pytest app/test_api/test_auth_api.py
 ```
 
 ## Endpoint documentation
