@@ -92,7 +92,10 @@ class CRUDReceipt:
             raise HTTPException(status_code=404, detail="User not found")
 
         receipts_products = receipt.products
-        receipt_text = f"{user.name}\n"
+
+        username = user.name
+        username_padding = (line_length - len(username)) // 2
+        receipt_text = " " * username_padding + username + "\n"
         receipt_text += "=" * line_length + "\n"
 
         for i, product in enumerate(receipts_products):
@@ -122,9 +125,14 @@ class CRUDReceipt:
         receipt_text += "Payment amount:" + (line_length - 15 - len(f"{receipt.payment_amount}")) * " " + f"{receipt.payment_amount}\n"
         receipt_text += "Rest:" + (line_length - 5 - len(f"{receipt.rest:.2f}")) * " " + f"{receipt.rest:.2f}\n"
         receipt_text += "=" * line_length + "\n"
-        receipt_text += ("Date:" + (line_length - 5 - len(f"{receipt.created_at.strftime('%d.%m.%Y %H:%M')}")) * " " +
-                       f"{receipt.created_at.strftime('%d.%m.%Y %H:%M')}\n")
-        receipt_text += "Thank you for your purchase!"
+
+        date_str = receipt.created_at.strftime('%d.%m.%Y %H:%M')
+        date_padding = (line_length - len(date_str)) // 2
+        receipt_text += " " * date_padding + date_str + "\n"
+
+        thank_you_message = "Thank you for your purchase!"
+        thank_you_padding = (line_length - len(thank_you_message)) // 2
+        receipt_text += " " * thank_you_padding + thank_you_message + "\n"
 
         return receipt_text
 
